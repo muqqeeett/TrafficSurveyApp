@@ -1,0 +1,50 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.trafficsurvey.app'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.trafficsurvey.app'
+        minSdk 29          // Android 10+: downloads go to the Downloads folder with no storage permission
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+    }
+
+    // One fixed key for every build, so a newer APK installs over an older one.
+    // This is a personal sideloading key. For Google Play, make your own and keep it private.
+    signingConfigs {
+        shared {
+            storeFile file('../keystore/trafficsurvey.jks')
+            storePassword 'trafficsurvey'
+            keyAlias 'trafficsurvey'
+            keyPassword 'trafficsurvey'
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.shared
+        }
+        release {
+            signingConfig signingConfigs.shared
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    androidResources {
+        noCompress 'woff2', 'js', 'html', 'png', 'svg', 'webmanifest'
+    }
+}
+
+dependencies {
+    implementation 'androidx.webkit:webkit:1.11.0'
+}
