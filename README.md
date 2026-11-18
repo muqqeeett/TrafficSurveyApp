@@ -1,7 +1,6 @@
 # Traffic Volume Survey Tool: Android app
 
-A native Android shell around the existing web app. The web app (`app/src/main/assets/www/index.html`)
-is bundled **unchanged**, so counting, PCE/PCU, peak hour factor, charts, CSV import/export and the
+A native Android shell around the existing web app. The web app https://www.trafficcount.vercel.app/ , so counting, PCE/PCU, peak hour factor, charts, CSV import/export and the
 PDF report all behave exactly as on the web. It works fully offline and needs no network permission.
 
 ## What the shell adds
@@ -17,14 +16,4 @@ PDF report all behave exactly as on the web. It works fully offline and needs no
 | Service worker, install button | Not needed; the app is installed from the APK |
 
 ## Install
-Copy the APK to the phone, open it, and allow "install unknown apps" for your file manager or browser
-when asked. Requires Android 10 or newer.
-
-## Notes
-- `keystore/trafficsurvey.jks` is a personal signing key (password `trafficsurvey`) committed on purpose so
-  that every build is signed the same way and new versions install over old ones. For Google Play, create
-  your own key and change `signingConfigs` in `app/build.gradle`.
-- To update the app after changing the web app, replace the files in `app/src/main/assets/www/`
-  (keep `index.html`, `fonts/`, `vendor/`, `icons/`), raise `versionCode` in `app/build.gradle`, and rebuild.
-- The native code is in `app/src/main/java/com/trafficsurvey/app/MainActivity.java` and
-  `app/src/main/assets/android-shim.js`.
+| Download the apk from the "releases" section and install afterwards. Android only. |
