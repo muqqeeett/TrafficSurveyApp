@@ -16,17 +16,6 @@ PDF report all behave exactly as on the web. It works fully offline and needs no
 | Rotation, keyboard | Handled without reloading, so a running count is never lost |
 | Service worker, install button | Not needed; the app is installed from the APK |
 
-## Build the APK
-
-**Option A: GitHub (no setup).** Push this folder to a GitHub repo. The *Build APK* workflow in
-`.github/workflows` runs automatically. Download `TrafficSurvey-apk` from the run's *Artifacts*.
-
-**Option B: Android Studio.** *File > Open* this folder, let it sync, then
-*Build > Build Bundle(s) / APK(s) > Build APK(s)* (choose the **release** variant).
-
-**Option C: command line.** Install JDK 17, the Android SDK and Gradle 8.7, then run `./build.sh`.
-Output: `app/build/outputs/apk/release/app-release.apk`.
-
 ## Install
 Copy the APK to the phone, open it, and allow "install unknown apps" for your file manager or browser
 when asked. Requires Android 10 or newer.
